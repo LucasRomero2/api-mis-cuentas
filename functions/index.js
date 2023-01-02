@@ -8,6 +8,8 @@ const db = firestoreApp.firestore();
 
 app.use(cors());
 
+app.use("/banks", require("./routes/BankRoutes"));
+
 exports.app = functions.https.onRequest(app);
 
 exports.newUser = functions.auth.user().onCreate(async (user) => {
