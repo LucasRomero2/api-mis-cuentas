@@ -9,6 +9,7 @@ const db = firestoreApp.firestore();
 app.use(cors());
 
 app.use("/banks", require("./routes/BankRoutes"));
+app.use("/categories", require("./routes/CategoryRoutes"));
 
 exports.app = functions.https.onRequest(app);
 
@@ -20,7 +21,7 @@ exports.newUser = functions.auth.user().onCreate(async (user) => {
       initial_balance: 0,
       disabled: false,
       is_wallet: true,
-      userUID: user.uid,
+      user_uid: user.uid,
     };
 
     await db.collection("accounts").add(accountData);
