@@ -10,6 +10,7 @@ app.use(cors());
 
 app.use("/banks", require("./routes/BankRoutes"));
 app.use("/categories", require("./routes/CategoryRoutes"));
+app.use("/accounts", require("./routes/AccountRoutes"));
 
 exports.app = functions.https.onRequest(app);
 
