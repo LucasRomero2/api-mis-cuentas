@@ -64,11 +64,10 @@ categoryCtrl.updateCategory = async (req, res) => {
 
     if (categoryToEdit.exists) {
       await categoryRef.update(req.body);
-      const categoryEdited = await categoryRef.get();
 
       return res
         .status(200)
-        .json(`Se ha editado la categoria con id: ${categoryEdited.id}`);
+        .json(`Se ha editado la categoria con id: ${id}`);
     } else {
       functions.logger.error(`No se encontro la categoria con id: ${id}`);
 
